@@ -4,3 +4,10 @@ Design layout
   Flexible font size?
 
 Add event listeners to all keys:
+  Numbers add to an array and display on the screen
+    [6,5,0] and [1,2]
+  Operators add to a separate array, along with the .joined-up numbers
+  [650, +, 12]
+
+  Enter key eval() the expression and displays it
+    operator indexof -1, to +1;
