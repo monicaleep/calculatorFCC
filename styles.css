@@ -1,0 +1,30 @@
+.calculator{
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(128, 128, 128, 0.5);
+  height: 500px;
+  max-width: 400px;
+  padding-top: 10px;
+}
+.display{
+  width: 90%;
+  margin: 10px auto;
+  background-color: rgba(128, 128, 255, 0.5);
+  height: 100px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+  text-align: right;
+
+}
+.math{
+  display: inline-block;
+  float: left;
+  width: 30%;
+  margin: 1.66%;
+  padding: 20px 0;
+  background-color: steelblue;
+  text-align: center;
+}

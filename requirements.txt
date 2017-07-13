@@ -1,0 +1,6 @@
+Design layout
+  Flexbox
+  Consider bootstrap for responsiveness on small screens?
+  Flexible font size?
+
+Add event listeners to all keys:
