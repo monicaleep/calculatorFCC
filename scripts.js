@@ -2,6 +2,7 @@ const display = document.querySelector(".display");
 var numberArr = [];
 var masterArr = [];
 const operators = ["+","-","*","/"];
+const operatorButtons = document.querySelectorAll(".math-operator");
 var answer;
 const numberButtons = document.querySelectorAll(".math-number");
 const equalButton = document.querySelector(".math-equals")
@@ -23,22 +24,24 @@ for (let i =0; i<numberButtons.length; i++){
     }
   })
 }
-
-addButton.addEventListener("click",function(){
-  //check either array isn't empty
-  if (numberArr.length > 0){
-      //store current number in master array,
-      masterArr.push(parseInt(numberArr.join("")));
-      //add + to master array
-      masterArr.push("+");
+for (var i=0;i<operatorButtons.length; i++){
+  operatorButtons[i].addEventListener("click",function(){
+    //check either array isn't empty
+    if (numberArr.length > 0){
+        //store current number in master array,
+        masterArr.push(parseInt(numberArr.join("")));
+        //add + to master array
+        masterArr.push(this.textContent);
+        display.textContent = masterArr.join("");
+        numberArr = [];
+    }
+    else if (masterArr.length >0 && operators.indexOf(masterArr[masterArr.length-1]) == -1){
+      masterArr.push(this.textContent);
       display.textContent = masterArr.join("");
-      numberArr = [];
-  }
-  else if (masterArr.length >0 && operators.indexOf(masterArr[masterArr.length-1]) == -1){
-    masterArr.push("+");
-    display.textContent = masterArr.join("");
-  }
-})
+    }
+  })
+}
+
 
 equalButton.addEventListener("click",function(){
   if (numberArr.length > 0){
