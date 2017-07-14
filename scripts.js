@@ -57,5 +57,5 @@ equalButton.addEventListener("click",function(){
 clearButton.addEventListener("click",function(){
   masterArr = [];
   numberArr = [];
-  display.textContent = "";
+  display.textContent = "0";
 })
