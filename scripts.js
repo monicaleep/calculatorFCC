@@ -26,15 +26,17 @@ for (let i =0; i<numberButtons.length; i++){
 
 addButton.addEventListener("click",function(){
   //check either array isn't empty
-  if (numberArr.length > 0 || masterArr.length>0){
+  if (numberArr.length > 0){
       //store current number in master array,
-      if (numberArr.length > 0){
-        masterArr.push(parseInt(numberArr.join("")));
-      }
+      masterArr.push(parseInt(numberArr.join("")));
       //add + to master array
       masterArr.push("+");
       display.textContent = masterArr.join("");
       numberArr = [];
+  }
+  else if (masterArr.length >0 && operators.indexOf(masterArr[masterArr.length-1]) == -1){
+    masterArr.push("+");
+    display.textContent = masterArr.join("");
   }
 })
 
