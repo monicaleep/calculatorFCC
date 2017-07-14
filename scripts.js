@@ -6,7 +6,7 @@ const operatorButtons = document.querySelectorAll(".math-operator");
 var answer;
 const numberButtons = document.querySelectorAll(".math-number");
 const equalButton = document.querySelector(".math-equals")
-const addButton = document.querySelector("#plus");
+const clearButton = document.querySelector("#clear");
 // Add event listeners to the numbers
 
 for (let i =0; i<numberButtons.length; i++){
@@ -52,5 +52,10 @@ equalButton.addEventListener("click",function(){
     masterArr = [];
     masterArr[0] = answer;
   }
+})
 
+clearButton.addEventListener("click",function(){
+  masterArr = [];
+  numberArr = [];
+  display.textContent = "";
 })
