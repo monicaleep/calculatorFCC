@@ -10,4 +10,5 @@ Add event listeners to all keys:
   [650, +, 12]
 
   Enter key eval() the expression and displays it
+    removes what was previously in the display to a secondary display
     operator indexof -1, to +1;
