@@ -1,3 +1,10 @@
+TODO:
+Add negative number support (if minus sign pressed first);
+Add decimal
+Add keybindings
+Add secondary display for formula
+Remove eval()
+
 Design layout
   Flexbox
   Consider bootstrap for responsiveness on small screens?

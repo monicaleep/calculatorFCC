@@ -7,23 +7,52 @@ var answer;
 const numberButtons = document.querySelectorAll(".math-number");
 const equalButton = document.querySelector(".math-equals")
 const clearButton = document.querySelector("#clear");
-// Add event listeners to the numbers
 
+// Add event listeners to the numbers
 for (let i =0; i<numberButtons.length; i++){
-  numberButtons[i].addEventListener("click",function(){
-    //if we just performed a calculation, and want to perform a separate one
-    if (masterArr.length === 1){
-      masterArr = [];
-      numberArr.push(parseInt(this.textContent));
-      display.textContent = numberArr.join("");
-    }
-    //Store the value of each number in an array.
-    else{
-      numberArr.push(parseInt(this.textContent));
-      display.textContent = Array(masterArr+ numberArr).join("").replace(/,/g,"");
-    }
-  })
+  numberButtons[i].addEventListener("click",addNumber)
 }
+
+//randomly add the buttons to calculator
+(function (){
+  const all = document.querySelectorAll('.math');
+  const newAll = shuffle(Array.from(all));
+  const calc = document.querySelector('.calculator');
+  for (let m =0; m<newAll.length; m++){
+    calc.appendChild(newAll[m]);
+  }
+})();
+
+
+
+//given an array, randomly shuffle its elements
+//adapted from fisher-yates algorithm on wikipedia
+function shuffle(arr){
+  arr1 = arr;
+  let n = arr.length
+  for (let i =0; i<n-1; i++){
+    let j = Math.floor(Math.random() * (n));
+    let hold = arr[i];
+    arr1[i] = arr1[j];
+    arr[j] = hold;
+    //console.log(arr1)
+  }
+  return arr;
+}
+
+function addNumber(){
+  if (masterArr.length === 1){
+    masterArr = [];
+    numberArr.push(parseInt(this.textContent));
+    display.textContent = numberArr.join("");
+  }
+  //Store the value of each number in an array.
+  else{
+    numberArr.push(parseInt(this.textContent));
+    display.textContent = Array(masterArr+ numberArr).join("").replace(/,/g,"");
+  }
+}
+
 for (var i=0;i<operatorButtons.length; i++){
   operatorButtons[i].addEventListener("click",function(){
     //check either array isn't empty
@@ -41,7 +70,6 @@ for (var i=0;i<operatorButtons.length; i++){
     }
   })
 }
-
 
 equalButton.addEventListener("click",function(){
   if (numberArr.length > 0){
