@@ -10,6 +10,7 @@
 -moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
 box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
 }
+
 .display{
   border-radius: 10px;
   width: 80%;
@@ -33,8 +34,20 @@ body{
 
 .header{
   text-align: center;
+}
+
+h1{
   font-size: 40px;
-  margin-bottom: 10px;
+  font-style: normal;
+  font-weight: 400;
+}
+h2{
+  margin: 0;
+  font-weight: 400;
+}
+p{
+  margin-top:0;
+  font-size: .8em;
 }
 .math:active{
   box-shadow: none;
@@ -53,6 +66,7 @@ body{
 -moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
 box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
 }
+
 .math-operator, .math-equals, .math-decimal{
   background-color: #C68D23;
 }
