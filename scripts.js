@@ -1,6 +1,11 @@
+//Todos:
+// add decimal
+// refactor code to object-oriented, all methods on a calculator
+// use objects to store all operands
+
 const display = document.querySelector(".display");
-var numberArr = [];
-var masterArr = [];
+var buffer = [];
+var stack = [];
 const operators = ["+","-","*","/"];
 const operatorButtons = document.querySelectorAll(".math-operator");
 var answer;
@@ -15,6 +20,7 @@ for (let i =0; i<numberButtons.length; i++){
 
 //randomly add the buttons to calculator
 (function (){
+  //not DRY
   const all = document.querySelectorAll('.math');
   const newAll = shuffle(Array.from(all));
   const calc = document.querySelector('.calculator');
@@ -40,50 +46,54 @@ function shuffle(arr){
   return arr;
 }
 
+
+//not DRY
 function addNumber(){
-  if (masterArr.length === 1){
-    masterArr = [];
-    numberArr.push(parseInt(this.textContent));
-    display.textContent = numberArr.join("");
+  if (stack.length === 1){
+    stack = [];
+    buffer.push(parseInt(this.textContent));
+    display.textContent = buffer.join("");
   }
   //Store the value of each number in an array.
   else{
-    numberArr.push(parseInt(this.textContent));
-    display.textContent = Array(masterArr+ numberArr).join("").replace(/,/g,"");
+    buffer.push(parseInt(this.textContent));
+    display.textContent = Array(stack+ buffer).join("").replace(/,/g,"");
   }
 }
 
+//add operator button event listeners. could combine with number event listeners
 for (var i=0;i<operatorButtons.length; i++){
   operatorButtons[i].addEventListener("click",function(){
     //check either array isn't empty
-    if (numberArr.length > 0){
+    if (buffer.length > 0){
         //store current number in master array,
-        masterArr.push(parseInt(numberArr.join("")));
+        stack.push(parseInt(buffer.join("")));
         //add + to master array
-        masterArr.push(this.textContent);
-        display.textContent = masterArr.join("");
-        numberArr = [];
+        stack.push(this.textContent);
+        display.textContent = stack.join("");
+        buffer = [];
     }
-    else if (masterArr.length >0 && operators.indexOf(masterArr[masterArr.length-1]) == -1){
-      masterArr.push(this.textContent);
-      display.textContent = masterArr.join("");
+    else if (stack.length >0 && operators.indexOf(stack[stack.length-1]) == -1){
+      stack.push(this.textContent);
+      display.textContent = stack.join("");
     }
   })
 }
 
+
 equalButton.addEventListener("click",function(){
-  if (numberArr.length > 0){
-    masterArr.push(parseInt(numberArr.join("")));
-    answer = eval(masterArr.join(""));
+  if (buffer.length > 0){
+    stack.push(parseInt(buffer.join("")));
+    answer = eval(stack.join(""));
     display.textContent = answer;
-    numberArr = [];
-    masterArr = [];
-    masterArr[0] = answer;
+    buffer = [];
+    stack = [];
+    stack[0] = answer;
   }
 })
 
 clearButton.addEventListener("click",function(){
-  masterArr = [];
-  numberArr = [];
+  stack = [];
+  buffer = [];
   display.textContent = "0";
 })
