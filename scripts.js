@@ -25,10 +25,10 @@ function handleEquals(){
   if (buffer.length > 0) {
     stack.push(parseFloat(buffer.join("")));
     const answer = eval(stack.join(""));
-    display.textContent = Math.round((answer * 10000000000)) / 10000000000;
+    display.textContent = Math.round((answer * 1000000000)) / 1000000000;
     buffer = [];
     stack = [];
-    stack[0] = answer;
+    stack[0] = Math.round((answer * 1000000000)) / 1000000000;
   }
 }
 
