@@ -2,13 +2,16 @@
   width: 70%;
   margin: 0 auto;
   background-color: #4F6272 ;
-  height: 400px;
+  height: 425px;
   max-width: 300px;
   padding-top: 10px;
   border-radius: 15px;
   -webkit-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
   -moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
   box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .display{
@@ -55,9 +58,7 @@ p{
 }
 .math{
   font-weight: 700;
-  display: inline-block;
   border-radius: 3px;
-  float: left;
   width: 19%;
   margin:  2% 2.5%;
   padding: 10px 0;
@@ -66,7 +67,8 @@ p{
   -webkit-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
   -moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
   box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
-  transition: all 0.1s
+  transition: all 0.1s;
+  flex-grow: 1;
 }
 
 .math-operator, .math-equals, .math-decimal{
