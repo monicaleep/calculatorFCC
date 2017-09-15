@@ -2,7 +2,7 @@
   width: 70%;
   margin: 0 auto;
   background-color: #4F6272 ;
-  height: 550px;
+  height: 400px;
   max-width: 300px;
   padding-top: 10px;
   border-radius: 15px;
@@ -56,16 +56,17 @@ p{
 .math{
   font-weight: 700;
   display: inline-block;
-  border-radius: 50%;
+  border-radius: 3px;
   float: left;
-  width: 22%;
-  margin:  1.5% 5.66%;
-  padding: 20px 0;
+  width: 19%;
+  margin:  2% 2.5%;
+  padding: 10px 0;
   background-color: #86BBD8;
   text-align: center;
   -webkit-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
--moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
+  -moz-box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
+  box-shadow: 2px 4px 14px -1px rgba(17,17,17,1);
+  transition: all 0.1s
 }
 
 .math-operator, .math-equals, .math-decimal{
