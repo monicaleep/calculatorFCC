@@ -1,2 +1,2 @@
 ## JavaScript calculator for FreeCodeCamp ##
-Built without the use of jQuery;
+Built using vanilla JS, HTML, CSS
